@@ -23,7 +23,7 @@ class SignalGenerator:
             offset: int = 0,
             start: int = 0,
             end: int = 1,
-            step: int = 1) -> Signal:
+            step: float = 1.0) -> Signal:
 
         return UnitStep(
             gain=gain, offset=offset, start=start, end=end, step=step)

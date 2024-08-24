@@ -3,7 +3,7 @@ from .signal import Signal
 from .plotter import SignalPlotter
 
 
-class UnitStep(Signal):
+class UnitImpulse(Signal):
     def __init__(
             self,
             gain: float = 1.0,
@@ -16,13 +16,14 @@ class UnitStep(Signal):
         self._offset = offset
         self._range = np.arange(start, end, step)
 
-    def get(self):
+    def get(self) -> np.ndarray:
         signal = np.zeros_like(self._range)
-        signal[self._range >= self._offset] = 1*self._gain
+        signal[self._range == self._offset] = 1*self._gain
         return signal
 
     def get_range(self):
         return self._range
 
     def plot(self):
-        SignalPlotter.plot(self, title='Step Impulse')
+        SignalPlotter.plot(
+            signal=self.get(), range=self.get_range(), title='Unit Impulse')

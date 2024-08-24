@@ -24,4 +24,7 @@ class ExponencialSequence(Signal):
         return self._range
 
     def plot(self):
-        SignalPlotter.plot(self, title='Exponencial Sequence')
+        SignalPlotter.plot(
+            signal=self.get(),
+            range=self.get_range(),
+            title='Exponencial Sequence')

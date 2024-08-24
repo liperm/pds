@@ -26,4 +26,5 @@ class Cosine(Signal):
         return self._t
 
     def plot(self):
-        SignalPlotter.plot(self, title='Cosine')
+        SignalPlotter.plot(
+            signal=self.get(), range=self.get_range(), title='Cosine')

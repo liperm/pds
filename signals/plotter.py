@@ -1,11 +1,15 @@
 from matplotlib import pyplot as plt
-from .signal import Signal
+import numpy as np
 
 
 class SignalPlotter:
     @staticmethod
-    def plot(signal: Signal, title: str = '', x_label: str = 'n'):
-        plt.stem(signal.get_range(), signal.get())
+    def plot(
+            signal: np.ndarray,
+            range: np.arange,
+            title: str = '',
+            x_label: str = 'n'):
+        plt.stem(range, signal)
         plt.title(title)
         plt.xlabel(x_label)
         plt.ylabel('Amplitude')
