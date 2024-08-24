@@ -10,10 +10,12 @@ class UnitImpulse(Signal):
             offset: int = 0,
             start: int = 0,
             end: int = 1,
-            step: int = 1):
+            fs: int = 1):
 
         self._gain = gain
         self._offset = offset
+
+        step = (end - start)/fs
         self._range = np.arange(start, end, step)
 
     def get(self) -> np.ndarray:

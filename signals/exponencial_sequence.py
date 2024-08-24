@@ -6,12 +6,13 @@ from .plotter import SignalPlotter
 class ExponencialSequence(Signal):
     def __init__(
             self,
-            step: float = 1.0,
+            fs: int = 1,
             start: int = 0,
             end: int = 1,
             gain: float = 1.0,
             a: float = 1.0):
 
+        step = (end - start)/fs
         self._range = np.arange(start, end, step)
         self._gain = gain
         self._a = a

@@ -12,10 +12,10 @@ class SignalGenerator:
             offset: int = 0,
             start: int = 0,
             end: int = 1,
-            step: int = 1) -> Signal:
+            fs: int = 1) -> Signal:
 
         return UnitImpulse(
-            gain=gain, offset=offset, start=start, end=end, step=step)
+            gain=gain, offset=offset, start=start, end=end, fs=fs)
 
     @staticmethod
     def unit_step(
@@ -23,10 +23,10 @@ class SignalGenerator:
             offset: int = 0,
             start: int = 0,
             end: int = 1,
-            step: float = 1.0) -> Signal:
+            fs: int = 1) -> Signal:
 
         return UnitStep(
-            gain=gain, offset=offset, start=start, end=end, step=step)
+            gain=gain, offset=offset, start=start, end=end, fs=fs)
 
     @staticmethod
     def cosine(
@@ -49,11 +49,11 @@ class SignalGenerator:
 
     @staticmethod
     def exponencial_sequence(
-            step: float = 1.0,
+            fs: int = 1,
             start: int = 0,
             end: int = 1,
             gain: float = 1.0,
             a: float = 1.0) -> Signal:
 
         return ExponencialSequence(
-            gain=gain, a=a, start=start, end=end, step=step)
+            gain=gain, a=a, start=start, end=end, fs=fs)
