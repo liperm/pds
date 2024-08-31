@@ -15,8 +15,9 @@ class UnitImpulse(Signal):
         self._gain = gain
         self._offset = offset
 
-        step = (end - start)/fs
+        step = 1/fs
         self._range = np.arange(start, end, step)
+        self._fs = fs
 
     def get(self) -> np.ndarray:
         signal = np.zeros_like(self._range)

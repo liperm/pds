@@ -1,3 +1,4 @@
+import numpy as np
 from signals.signal import Signal
 from signals.unit_impulse import UnitImpulse
 from signals.unit_step import UnitStep
@@ -57,3 +58,10 @@ class SignalGenerator:
 
         return ExponencialSequence(
             gain=gain, a=a, start=start, end=end, fs=fs)
+
+    @staticmethod
+    def from_file(file_path: str, fs: int) -> Signal:
+        with open(file_path, 'rb') as f:
+            pcm_data = f.read()
+        data = np.frombuffer(pcm_data, dtype=np.int16)
+        return Signal(samples=data, fs=fs)

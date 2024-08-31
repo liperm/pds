@@ -16,6 +16,7 @@ class Cosine(Signal):
         self._duration = duration
         self._gain = gain
         self._t = np.arange(0, duration, 1/sampling_rate)
+        self._fs = sampling_rate
 
     def get(self):
         cosine_signal = self._gain * np.cos(

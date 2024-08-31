@@ -14,8 +14,8 @@ class UnitStep(Signal):
 
         self._gain = gain
         self._offset = offset
-
-        step = (end - start)/fs
+        self._fs = fs
+        step = 1/fs
         self._range = np.arange(start, end, step)
 
     def get(self):

@@ -12,10 +12,11 @@ class ExponencialSequence(Signal):
             gain: float = 1.0,
             a: float = 1.0):
 
-        step = (end - start)/fs
+        step = 1/fs
         self._range = np.arange(start, end, step)
         self._gain = gain
         self._a = a
+        self._fs = fs
 
     def get(self):
         signal = self._gain * self._a**self._range
