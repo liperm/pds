@@ -40,7 +40,7 @@ def plot(signal, title):
     plt.show()
 
 
-Fs = 2000
+Fs = 1000
 N = 100
 n = np.arange(N)
 
